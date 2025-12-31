@@ -1,0 +1,146 @@
+[
+  {
+    "id": "firefox-relay",
+    "title": "Firefox Relay: Email Privacy",
+    "speakers": ["Product Team"],
+    "videoUrl": "/videos/Firefox-Android.mp4",
+    "posterUrl": "/posters/relay.jpg",
+    "tags": ["Privacy", "Firefox"],
+    "duration": "3 min"
+  },
+  {
+    "id": "mdn-ai-help",
+    "title": "MDN AI Help",
+    "speakers": ["MDN Team"],
+    "videoUrl": "/videos/mdn-ai.mp4",
+    "posterUrl": "/posters/mdn.jpg",
+    "tags": ["AI", "Docs"],
+    "duration": "4 min"
+  },
+  {
+    "id": "pocket",
+    "title": "Pocket Recommendations",
+    "speakers": ["Pocket Team"],
+    "videoUrl": "/videos/pocket.mp4",
+    "posterUrl": "/posters/pocket.jpg",
+    "tags": ["Content"],
+    "duration": "3 min"
+  },
+  {
+    "id": "firefox-translations",
+    "title": "On-Device Translation",
+    "speakers": ["Innovation Team"],
+    "videoUrl": "/videos/translations.mp4",
+    "posterUrl": "/posters/translations.jpg",
+    "tags": ["Privacy", "ML"],
+    "duration": "5 min"
+  },
+  {
+    "id": "webgpu",
+    "title": "WebGPU in Firefox",
+    "speakers": ["Platform Team"],
+    "videoUrl": "/videos/webgpu.mp4",
+    "posterUrl": "/posters/webgpu.jpg",
+    "tags": ["WebGPU"],
+    "duration": "6 min"
+  },
+  {
+    "id": "common-voice",
+    "title": "Common Voice Dataset",
+    "speakers": ["ML Team"],
+    "videoUrl": "/videos/common-voice.mp4",
+    "posterUrl": "/posters/common-voice.jpg",
+    "tags": ["Open Source"],
+    "duration": "4 min"
+  },
+  {
+    "id": "firefox-view",
+    "title": "Firefox View & Sync",
+    "speakers": ["Product Team"],
+    "videoUrl": "/videos/firefox-view.mp4",
+    "posterUrl": "/posters/view.jpg",
+    "tags": ["Firefox", "Sync"],
+    "duration": "3 min"
+  },
+  {
+    "id": "total-cookie-protection",
+    "title": "Total Cookie Protection",
+    "speakers": ["Privacy Team"],
+    "videoUrl": "/videos/tcp.mp4",
+    "posterUrl": "/posters/tcp.jpg",
+    "tags": ["Privacy"],
+    "duration": "4 min"
+  },
+  {
+    "id": "mozilla-vpn",
+    "title": "Mozilla VPN",
+    "speakers": ["Security Team"],
+    "videoUrl": "/videos/vpn.mp4",
+    "posterUrl": "/posters/vpn.jpg",
+    "tags": ["Privacy", "VPN"],
+    "duration": "3 min"
+  },
+  {
+    "id": "firefox-containers",
+    "title": "Multi-Account Containers",
+    "speakers": ["Product Team"],
+    "videoUrl": "/videos/containers.mp4",
+    "posterUrl": "/posters/containers.jpg",
+    "tags": ["Privacy"],
+    "duration": "5 min"
+  },
+  {
+    "id": "webxr",
+    "title": "WebXR: VR on the Web",
+    "speakers": ["Platform Team"],
+    "videoUrl": "/videos/webxr.mp4",
+    "posterUrl": "/posters/webxr.jpg",
+    "tags": ["WebXR", "VR"],
+    "duration": "6 min"
+  },
+  {
+    "id": "pwas",
+    "title": "Progressive Web Apps",
+    "speakers": ["Web Team"],
+    "videoUrl": "/videos/pwa.mp4",
+    "posterUrl": "/posters/pwa.jpg",
+    "tags": ["PWA", "Web"],
+    "duration": "4 min"
+  },
+  {
+    "id": "thunderbird",
+    "title": "Thunderbird Reborn",
+    "speakers": ["Thunderbird Team"],
+    "videoUrl": "/videos/thunderbird.mp4",
+    "posterUrl": "/posters/thunderbird.jpg",
+    "tags": ["Email"],
+    "duration": "5 min"
+  },
+  {
+    "id": "firefox-reality",
+    "title": "Firefox Reality & Hubs",
+    "speakers": ["Mixed Reality"],
+    "videoUrl": "/videos/reality.mp4",
+    "posterUrl": "/posters/reality.jpg",
+    "tags": ["VR", "Web"],
+    "duration": "6 min"
+  },
+  {
+    "id": "servo",
+    "title": "Servo Browser Engine",
+    "speakers": ["Platform Team"],
+    "videoUrl": "/videos/servo.mp4",
+    "posterUrl": "/posters/servo.jpg",
+    "tags": ["Rust", "Engine"],
+    "duration": "7 min"
+  },
+  {
+    "id": "web-components",
+    "title": "Web Components & Shadow DOM",
+    "speakers": ["Web Standards"],
+    "videoUrl": "/videos/web-components.mp4",
+    "posterUrl": "/posters/web-components.jpg",
+    "tags": ["Web", "Standards"],
+    "duration": "5 min"
+  }
+]

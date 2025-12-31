@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mozilla @ FOSDEM 2026 - Booth Demos</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFM7J4H4RG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GFM7J4H4RG');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://www.mozilla.org/media/protocol/img/logos/mozilla/logo-word-hor.e20791bb4dd4.svg" alt="Mozilla" class="mozilla-logo">
+                <div class="header-text">
+                    <h1>Mozilla @ FOSDEM 2026</h1>
+                    <p class="subtitle">Explore our latest innovations • Watch demos • Share your feedback</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="booth-intro">
+            <h2>Welcome to the Mozilla Booth!</h2>
+            <!--<p>Watch demos of our latest products and help us improve by sharing quick feedback after each video.</p>-->
+        </div> 
+        <div id="videoGrid" class="video-grid">
+            <!-- Cards populated by JS -->
+        </div>
+    </main> 
+    
+
+    <!-- Modal -->
+    <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            
+            <div class="modal-body">
+                <!-- Left: Video Player -->
+                <div class="video-container">
+                    <video 
+                        id="videoPlayer" 
+                        controls 
+                        controlsList="nodownload"
+                        preload="metadata"
+                    >
+                        <source id="videoSource" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <div class="video-overlay" id="videoOverlay">
+                        <button class="play-button" id="playButton" aria-label="Play video">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="38" fill="rgba(255,255,255,0.9)" stroke="currentColor" stroke-width="2"/>
+                                <path d="M 32 26 L 32 54 L 54 40 Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Feedback Panel (hidden initially) -->
+                <div id="feedbackPanel" class="feedback-panel" style="display: none;">
+                    <div id="feedbackForm">
+                        <h3>Quick Feedback</h3>
+                        <p class="feedback-subtitle">Your input shapes Mozilla's future</p>
+
+                        <!-- Netlify Forms -->
+                        <form name="demo-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="feedbackFormElement">
+                            <!-- Honeypot for spam protection -->
+                            <input type="hidden" name="form-name" value="demo-feedback">
+                            <p style="display: none;">
+                                <label>Don't fill this out: <input name="bot-field" /></label>
+                            </p>
+
+                            <!-- Hidden fields for context -->
+                            <input type="hidden" name="videoId" id="feedbackVideoId">
+                            <input type="hidden" name="videoTitle" id="feedbackVideoTitle">
+                            <input type="hidden" name="timestamp" id="feedbackTimestamp">
+
+                            <!-- Thumbs Up/Down -->
+                            <div class="form-group">
+                                <label>Did you find this demo valuable?</label>
+                                <div class="thumbs-buttons">
+                                    <button type="button" class="thumb-btn thumb-up" data-sentiment="positive" aria-label="Thumbs up">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                        </svg>
+                                        <span>Yes</span>
+                                    </button>
+                                    <button type="button" class="thumb-btn thumb-down" data-sentiment="negative" aria-label="Thumbs down">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+                                        </svg>
+                                        <span>No</span>
+                                    </button>
+                                </div>
+                                <input type="hidden" name="sentiment" id="sentimentValue" required>
+                            </div>
+
+                            <!-- Optional comment -->
+                            <div class="form-group">
+                                <label for="comment">What could we improve? (optional)</label>
+                                <textarea 
+                                    id="comment" 
+                                    name="comment" 
+                                    rows="3" 
+                                    placeholder="Your suggestions help us build better products..."
+                                    maxlength="500"
+                                ></textarea>
+                                <div class="char-count">
+                                    <span id="charCount">0</span>/500
+                                </div>
+                            </div>
+
+                            <!-- Optional contact -->
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="contactConsent" name="contactConsent" value="yes">
+                                    I'm interested in beta testing or follow-up discussions
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="your@email.com"
+                                    style="display: none;"
+                                    class="email-field"
+                                >
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit Feedback</button>
+                        </form>
+                    </div>
+
+                    <!-- Thank you state -->
+                    <div id="thankYouMessage" style="display: none;">
+                        <div class="thank-you">
+                            <div class="thank-you-icon">🎉</div>
+                            <h3>Thank you!</h3>
+                            <p>Your feedback helps us build a better internet for everyone.</p>
+                            <button class="secondary-btn" id="watchAnotherBtn">Watch Another Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>
+                <strong>Visit us at the Mozilla Booth!</strong><br>
+                FOSDEM 2026 • Brussels, Belgium • 
+                <a href="https://mozilla.org" target="_blank" rel="noopener">mozilla.org</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
