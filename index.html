@@ -20,9 +20,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="https://www.mozilla.org/media/protocol/img/logos/mozilla/logo-word-hor.e20791bb4dd4.svg" alt="Mozilla" class="mozilla-logo">
+                <img src="/images/mozilla-logo.png" alt="Mozilla" class="mozilla-logo">
                 <div class="header-text">
-                    <h1>Mozilla @ FOSDEM 2026</h1>
+                    <h1>Mozilla at FOSDEM 2026</h1>
                     <p class="subtitle">Explore our latest innovations • Watch demos • Share your feedback</p>
                 </div>
             </div>
@@ -30,10 +30,6 @@
     </header>
 
     <main class="container">
-        <div class="booth-intro">
-            <h2>Welcome to the Mozilla Booth!</h2>
-            <!--<p>Watch demos of our latest products and help us improve by sharing quick feedback after each video.</p>-->
-        </div> 
         <div id="videoGrid" class="video-grid">
             <!-- Cards populated by JS -->
         </div>
@@ -74,13 +70,8 @@
                         <h3>Quick Feedback</h3>
                         <p class="feedback-subtitle">Your input shapes Mozilla's future</p>
 
-                        <!-- Netlify Forms -->
-                        <form name="demo-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="feedbackFormElement">
-                            <!-- Honeypot for spam protection -->
-                            <input type="hidden" name="form-name" value="demo-feedback">
-                            <p style="display: none;">
-                                <label>Don't fill this out: <input name="bot-field" /></label>
-                            </p>
+                        <!-- Feedback Form -->
+                        <form id="feedbackFormElement">
 
                             <!-- Hidden fields for context -->
                             <input type="hidden" name="videoId" id="feedbackVideoId">
@@ -148,6 +139,7 @@
                             <div class="thank-you-icon">🎉</div>
                             <h3>Thank you!</h3>
                             <p>Your feedback helps us build a better internet for everyone.</p>
+                            <button class="secondary-btn" id="submitAnotherBtn">Submit Another Feedback</button>
                             <button class="secondary-btn" id="watchAnotherBtn">Watch Another Demo</button>
                         </div>
                     </div>

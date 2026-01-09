@@ -113,18 +113,12 @@ function openModal(card) {
     }
     player.load();
 
-    // Hide feedback panel initially
-    feedbackPanel.style.display = 'none';
+    // Show feedback panel immediately
+    feedbackPanel.style.display = 'block';
     overlay.classList.add('visible');
 
-    // Check if already submitted
-    if (hasSubmittedFeedback(currentVideo.id)) {
-        // Auto-show thank you if already submitted
-        setTimeout(() => {
-            feedbackPanel.style.display = 'block';
-            showThankYouState();
-        }, 500);
-    }
+    // Always show feedback form (allow multiple submissions)
+    showFeedbackForm();
 
     // Show modal
     modal.classList.add('active');
@@ -255,37 +249,37 @@ function initializeContactConsent() {
     });
 }
 
-// Form submission (Vercel KV)
+// Form submission (Vercel KV with localStorage fallback)
 function initializeFormSubmission() {
     const form = document.getElementById('feedbackFormElement');
-    
+
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
+
         // Validate sentiment
         if (!document.getElementById('sentimentValue').value) {
             alert('Please select thumbs up or down before submitting.');
             return;
         }
-        
+
         const submitBtn = form.querySelector('.submit-btn');
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
-        
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        
+
         try {
             const response = await fetch('/api/feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            
+
             if (response.ok) {
                 markFeedbackSubmitted(currentVideo.id);
                 showThankYouState();
-                logEvent('feedback_submitted', { 
+                logEvent('feedback_submitted', {
                     demoId: currentVideo.id,
                     sentiment: data.sentiment
                 });
@@ -293,8 +287,27 @@ function initializeFormSubmission() {
                 throw new Error('Submission failed');
             }
         } catch (error) {
-            console.error('Error submitting feedback:', error);
-            alert('There was an error submitting your feedback. Please try again.');
+            console.error('Error submitting to API, using localStorage fallback:', error);
+
+            // Fallback to localStorage for local development
+            const localFeedback = JSON.parse(localStorage.getItem('mozilla_fosdem_feedback_data') || '[]');
+            localFeedback.push({
+                ...data,
+                id: `feedback-${Date.now()}`,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('mozilla_fosdem_feedback_data', JSON.stringify(localFeedback));
+
+            console.log('Feedback saved locally:', data);
+            console.log('All local feedback:', localFeedback);
+
+            markFeedbackSubmitted(currentVideo.id);
+            showThankYouState();
+            logEvent('feedback_submitted', {
+                demoId: currentVideo.id,
+                sentiment: data.sentiment
+            });
+        } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Feedback';
         }
@@ -366,17 +379,19 @@ function initializeModalHandlers() {
     const modal = document.getElementById('videoModal');
     const closeBtn = document.querySelector('.modal-close');
     const watchAnotherBtn = document.getElementById('watchAnotherBtn');
-    
+    const submitAnotherBtn = document.getElementById('submitAnotherBtn');
+
     closeBtn.addEventListener('click', closeModal);
     watchAnotherBtn.addEventListener('click', closeModal);
-    
+    submitAnotherBtn.addEventListener('click', showFeedbackForm);
+
     // Close on ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
     });
-    
+
     // Close on backdrop click
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
