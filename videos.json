@@ -88,5 +88,14 @@
     "posterUrl": "",
     "tags": ["Firefox", "Profiles"],
     "duration": "5 min"
+  },
+  {
+    "id": "taskbar-tabs",
+    "title": "Taskbar Tabs Callout",
+    "speakers": ["Desktop Team"],
+    "videoUrl": "/videos/Taskbar-tabs-callout.mp4",
+    "posterUrl": "",
+    "tags": ["Desktop", "Productivity"],
+    "duration": "4 min"
   }
 ]
