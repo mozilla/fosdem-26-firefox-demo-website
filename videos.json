@@ -97,5 +97,23 @@
     "posterUrl": "",
     "tags": ["Desktop", "Productivity"],
     "duration": "4 min"
+  },
+  {
+    "id": "any-llm-gateway",
+    "title": "Mozilla.ai - any-llm-gateway",
+    "speakers": ["Mozilla.ai Team"],
+    "videoUrl": "/videos/any-llm-gateway_default.mp4",
+    "posterUrl": "",
+    "tags": ["AI", "Mozilla.ai"],
+    "duration": "8 min"
+  },
+  {
+    "id": "any-llm-library",
+    "title": "Mozilla.ai - any-llm-library",
+    "speakers": ["Mozilla.ai Team"],
+    "videoUrl": "/videos/any-llm-library_default.mp4",
+    "posterUrl": "",
+    "tags": ["AI", "Mozilla.ai"],
+    "duration": "8 min"
   }
 ]
