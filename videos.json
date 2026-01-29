@@ -113,7 +113,7 @@
     "speakers": ["Mozilla.ai Team"],
     "videoUrl": "/videos/any-llm-gateway_default.mp4",
     "posterUrl": "",
-    "tags": ["AI", "Mozilla.ai"],
+    "tags": ["AI", "Development"],
     "duration": "8 min"
   },
   {
@@ -122,7 +122,34 @@
     "speakers": ["Mozilla.ai Team"],
     "videoUrl": "/videos/any-llm-library_default.mp4",
     "posterUrl": "",
-    "tags": ["AI", "Mozilla.ai"],
+    "tags": ["AI", "Development"],
     "duration": "8 min"
+  },
+  {
+    "id": "desktop-split-view",
+    "title": "Firefox Desktop - Split View",
+    "speakers": ["Desktop Team"],
+    "videoUrl": "/videos/Firefox Desktop - Split View_default.mp4",
+    "posterUrl": "",
+    "tags": ["Desktop", "Productivity"],
+    "duration": "3 min"
+  },
+  {
+    "id": "desktop-tab-notes",
+    "title": "Firefox Desktop - Tab Notes",
+    "speakers": ["Desktop Team"],
+    "videoUrl": "/videos/Firefox Desktop - Tab Notes_default.mp4",
+    "posterUrl": "",
+    "tags": ["Desktop", "Productivity"],
+    "duration": "2 min"
+  },
+  {
+    "id": "llamafile",
+    "title": "Mozilla.ai - llamafile",
+    "speakers": ["Mozilla.ai Team"],
+    "videoUrl": "/videos/llamafile_default.mp4",
+    "posterUrl": "",
+    "tags": ["AI", "Development"],
+    "duration": "7 min"
   }
 ]
